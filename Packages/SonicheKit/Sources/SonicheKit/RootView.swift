@@ -1,25 +1,23 @@
 import SwiftUI
 
-/// The first screen of the app. A placeholder until real features land.
+/// The app's top-level screen: a tab bar with the wardrobe and the stylist.
 public struct RootView: View {
-    public init() {}
+    let wardrobe: WardrobeStore
+
+    public init(wardrobe: WardrobeStore) {
+        self.wardrobe = wardrobe
+    }
 
     public var body: some View {
-        VStack(spacing: 12) {
-            Image(systemName: "tshirt")
-                .font(.system(size: 56, weight: .light))
-                .foregroundStyle(.tint)
-            Text(AppInfo.displayName)
-                .font(.largeTitle.weight(.semibold))
-                .tracking(4)
-            Text(AppInfo.tagline)
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+        TabView {
+            WardrobeView(store: wardrobe)
+                .tabItem { Label("Wardrobe", systemImage: "tshirt") }
+            StylistView()
+                .tabItem { Label("Stylist", systemImage: "sparkles") }
         }
-        .padding()
     }
 }
 
 #Preview {
-    RootView()
+    RootView(wardrobe: .temporary())
 }

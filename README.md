@@ -2,6 +2,13 @@
 
 An iPhone-first AI personal stylist app, built natively with Swift and SwiftUI.
 
+## Features
+
+- **Wardrobe.** Photograph clothes or pick photos from your library, give each item a
+  category and optional name, browse items grouped by category, and delete them.
+  Everything is stored on the phone.
+- **Stylist.** Placeholder tab for AI outfit suggestions, coming next.
+
 ## Requirements
 
 - macOS 15.6 or newer with Xcode 26 (Xcode 16 also works)

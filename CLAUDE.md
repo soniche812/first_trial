@@ -13,7 +13,12 @@ Claude Code writes most of the code. The owner builds and runs it in Xcode on an
 
 - `Packages/SonicheKit/Sources/SonicheKit/`: almost all code goes here, including views,
   models, services, and the stylist client. Files are picked up by directory.
-  Mark anything the app shell uses as `public`.
+  Mark anything the app shell uses as `public`. Group code by feature folder:
+  `Wardrobe/` (items, on-device store, photo handling, wardrobe screens) and
+  `Stylist/` (AI outfit suggestions).
+- Wardrobe data lives in Application Support under `Wardrobe/`: `wardrobe.json` plus
+  `Images/<item id>.jpg`. `ClothingCategory` raw values are stored on disk, so never
+  rename them.
 - `Packages/SonicheKit/Tests/SonicheKitTests/`: unit tests (XCTest).
 - `Soniche/`: the thin app shell. Keep it to the `@main` entry point, assets, and
   configuration. It is an Xcode 16 synchronized folder, so new files here need no

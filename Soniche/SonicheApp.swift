@@ -3,9 +3,11 @@ import SonicheKit
 
 @main
 struct SonicheApp: App {
+    @State private var wardrobe = WardrobeStore.makeDefault()
+
     var body: some Scene {
         WindowGroup {
-            RootView()
+            RootView(wardrobe: wardrobe)
         }
     }
 }
