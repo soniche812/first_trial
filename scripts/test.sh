@@ -6,6 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 xcodebuild -version
+xcodebuild -list -project Soniche.xcodeproj
 
 # Pick the iPhone simulator with the newest iOS runtime.
 UDID="$(xcrun simctl list devices available --json | python3 -c '

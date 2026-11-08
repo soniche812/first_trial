@@ -12,6 +12,7 @@
 
 /* Begin PBXFileReference section */
 		5A0C1E000000000000000001 /* Soniche.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soniche.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A0C1E000000000000000013 /* SonicheKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SonicheKit; path = Packages/SonicheKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -37,6 +38,7 @@
 		5A0C1E000000000000000004 = {
 			isa = PBXGroup;
 			children = (
+				5A0C1E000000000000000013 /* SonicheKit */,
 				5A0C1E000000000000000002 /* Soniche */,
 				5A0C1E000000000000000005 /* Products */,
 			);
@@ -100,9 +102,6 @@
 			);
 			mainGroup = 5A0C1E000000000000000004;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				5A0C1E000000000000000012 /* XCLocalSwiftPackageReference "Packages/SonicheKit" */,
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5A0C1E000000000000000005 /* Products */;
 			projectDirPath = "";
@@ -291,13 +290,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		5A0C1E000000000000000012 /* XCLocalSwiftPackageReference "Packages/SonicheKit" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/SonicheKit;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		5A0C1E000000000000000011 /* SonicheKit */ = {
