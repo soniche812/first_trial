@@ -20,22 +20,38 @@ final class WardrobeUITests: XCTestCase {
         add(attachment)
     }
 
-    func testWardrobeScrollsToLastCategory() {
+    func testWardrobeScrollsToLastItem() {
         let app = launchWithSampleWardrobe()
         let grid = app.scrollViews["wardrobe-grid"]
         XCTAssertTrue(grid.waitForExistence(timeout: 15))
         attachScreenshot(app, named: "wardrobe-top")
 
-        let lastHeader = app.descendants(matching: .any)["category-header-accessory"]
-        XCTAssertFalse(lastHeader.exists && lastHeader.isHittable,
+        // Newest first within each category, categories in declaration order.
+        let firstItem = app.buttons["Sample top 3"]
+        let lastItem = app.buttons["Sample accessory 1"]
+        XCTAssertTrue(firstItem.waitForExistence(timeout: 5))
+        print("WARDROBE-DEBUG window=\(app.windows.firstMatch.frame) grid=\(grid.frame) firstItem=\(firstItem.frame)")
+        XCTAssertFalse(lastItem.exists && lastItem.isHittable,
                        "Sample content should be taller than the screen")
 
-        for _ in 0..<8 where !(lastHeader.exists && lastHeader.isHittable) {
+        let startY = firstItem.frame.minY
+        grid.swipeUp()
+        let movedY = firstItem.exists ? firstItem.frame.minY : -.greatestFiniteMagnitude
+        print("WARDROBE-DEBUG after one swipe: firstItem.minY \(startY) -> \(movedY)")
+        if movedY >= startY {
+            print("WARDROBE-DEBUG hierarchy after one swipe:\n\(app.debugDescription)")
+        }
+        XCTAssertLessThan(movedY, startY, "A swipe up should move the content up")
+
+        for _ in 0..<8 where !(lastItem.exists && lastItem.isHittable) {
             grid.swipeUp()
         }
         attachScreenshot(app, named: "wardrobe-scrolled")
-        XCTAssertTrue(lastHeader.exists && lastHeader.isHittable,
-                      "Scrolling should reveal the Accessories section")
+        if !(lastItem.exists && lastItem.isHittable) {
+            print("WARDROBE-DEBUG hierarchy after swipes:\n\(app.debugDescription)")
+        }
+        XCTAssertTrue(lastItem.exists && lastItem.isHittable,
+                      "Scrolling should reach the last item")
     }
 
     func testOpeningAnItemShowsItsDetails() {
