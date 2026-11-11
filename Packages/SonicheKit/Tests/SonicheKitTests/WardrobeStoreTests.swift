@@ -76,6 +76,16 @@ final class WardrobeStoreTests: XCTestCase {
         XCTAssertTrue(store.items(in: .shoes).isEmpty)
     }
 
+    func testSampleWardrobeFillsEveryCategory() {
+        let store = WardrobeStore.sample(itemsPerCategory: 2)
+        for category in ClothingCategory.allCases {
+            XCTAssertEqual(store.items(in: category).count, 2, "\(category)")
+        }
+        for item in store.items {
+            XCTAssertTrue(FileManager.default.fileExists(atPath: store.imageURL(for: item).path))
+        }
+    }
+
     func testUnreadableIndexIsKeptAsBackupAndReported() throws {
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         let garbage = Data("not json".utf8)

@@ -37,7 +37,7 @@ struct ItemDetailView: View {
         .confirmationDialog("Delete this item?", isPresented: $confirmingDelete, titleVisibility: .visible) {
             Button("Delete", role: .destructive) { delete() }
         } message: {
-            Text("The photo will be removed from your wardrobe.")
+            Text("This item will be removed from your wardrobe.")
         }
         .alert("Could not delete", isPresented: Binding(
             get: { errorMessage != nil },

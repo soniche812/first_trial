@@ -10,8 +10,19 @@
 		5A0C1E000000000000000010 /* SonicheKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A0C1E000000000000000011 /* SonicheKit */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5A0C1E000000000000000029 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A0C1E000000000000000009 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A0C1E000000000000000006;
+			remoteInfo = Soniche;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5A0C1E000000000000000001 /* Soniche.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soniche.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A0C1E000000000000000020 /* SonicheUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SonicheUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A0C1E000000000000000013 /* SonicheKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SonicheKit; path = Packages/SonicheKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -19,6 +30,11 @@
 		5A0C1E000000000000000002 /* Soniche */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Soniche;
+			sourceTree = "<group>";
+		};
+		5A0C1E000000000000000021 /* SonicheUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SonicheUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +48,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A0C1E000000000000000024 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -40,6 +63,7 @@
 			children = (
 				5A0C1E000000000000000013 /* SonicheKit */,
 				5A0C1E000000000000000002 /* Soniche */,
+				5A0C1E000000000000000021 /* SonicheUITests */,
 				5A0C1E000000000000000005 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0C1E000000000000000001 /* Soniche.app */,
+				5A0C1E000000000000000020 /* SonicheUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +103,29 @@
 			productReference = 5A0C1E000000000000000001 /* Soniche.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5A0C1E000000000000000022 /* SonicheUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A0C1E000000000000000026 /* Build configuration list for PBXNativeTarget "SonicheUITests" */;
+			buildPhases = (
+				5A0C1E000000000000000023 /* Sources */,
+				5A0C1E000000000000000024 /* Frameworks */,
+				5A0C1E000000000000000025 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A0C1E00000000000000002A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5A0C1E000000000000000021 /* SonicheUITests */,
+			);
+			name = SonicheUITests;
+			packageProductDependencies = (
+			);
+			productName = SonicheUITests;
+			productReference = 5A0C1E000000000000000020 /* SonicheUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -90,6 +138,10 @@
 				TargetAttributes = {
 					5A0C1E000000000000000006 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					5A0C1E000000000000000022 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 5A0C1E000000000000000006;
 					};
 				};
 			};
@@ -108,12 +160,20 @@
 			projectRoot = "";
 			targets = (
 				5A0C1E000000000000000006 /* Soniche */,
+				5A0C1E000000000000000022 /* SonicheUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5A0C1E000000000000000008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A0C1E000000000000000025 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -130,7 +190,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A0C1E000000000000000023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A0C1E00000000000000002A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A0C1E000000000000000006 /* Soniche */;
+			targetProxy = 5A0C1E000000000000000029 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5A0C1E00000000000000000C /* Debug */ = {
@@ -268,6 +343,42 @@
 			};
 			name = Release;
 		};
+		5A0C1E000000000000000027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.soniche812.soniche.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Soniche;
+			};
+			name = Debug;
+		};
+		5A0C1E000000000000000028 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.soniche812.soniche.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Soniche;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -285,6 +396,15 @@
 			buildConfigurations = (
 				5A0C1E00000000000000000E /* Debug */,
 				5A0C1E00000000000000000F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A0C1E000000000000000026 /* Build configuration list for PBXNativeTarget "SonicheUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0C1E000000000000000027 /* Debug */,
+				5A0C1E000000000000000028 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

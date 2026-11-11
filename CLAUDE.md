@@ -20,6 +20,9 @@ Claude Code writes most of the code. The owner builds and runs it in Xcode on an
   `Images/<item id>.jpg`. `ClothingCategory` raw values are stored on disk, so never
   rename them.
 - `Packages/SonicheKit/Tests/SonicheKitTests/`: unit tests (XCTest).
+- `SonicheUITests/`: UI tests that drive the app on the simulator. They launch with
+  `--sample-wardrobe`, which uses sample items in a temporary folder. Screenshots they
+  attach are uploaded by CI as the `screenshots` artifact.
 - `Soniche/`: the thin app shell. Keep it to the `@main` entry point, assets, and
   configuration. It is an Xcode 16 synchronized folder, so new files here need no
   project file edits.

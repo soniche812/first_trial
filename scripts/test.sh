@@ -26,8 +26,13 @@ print("Using " + best[2] + " on iOS " + version_text, file=sys.stderr)
 print(best[1])
 ')"
 
+# Test results, including UI test screenshots, are kept in build/TestResults.xcresult.
+RESULTS="build/TestResults.xcresult"
+rm -rf "$RESULTS"
+
 xcodebuild test \
     -project Soniche.xcodeproj \
     -scheme Soniche \
     -destination "id=${UDID}" \
+    -resultBundlePath "$RESULTS" \
     CODE_SIGNING_ALLOWED=NO

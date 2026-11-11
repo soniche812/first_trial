@@ -80,29 +80,35 @@ public struct WardrobeView: View {
         }
     }
 
+    /// One grid with a section per category. A single lazy grid keeps scrolling
+    /// reliable; nesting lazy grids inside a lazy stack can break the scroll height.
     private var itemGrid: some View {
         ScrollView {
-            LazyVStack(alignment: .leading, spacing: 24) {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 12)], alignment: .leading, spacing: 12) {
                 ForEach(ClothingCategory.allCases) { category in
                     let items = store.items(in: category)
                     if !items.isEmpty {
-                        VStack(alignment: .leading, spacing: 12) {
+                        Section {
+                            ForEach(items) { item in
+                                NavigationLink(value: item) {
+                                    ItemCell(item: item, imageURL: store.imageURL(for: item))
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        } header: {
                             Label(category.displayName, systemImage: category.symbolName)
                                 .font(.title3.weight(.semibold))
-                            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 12)], spacing: 12) {
-                                ForEach(items) { item in
-                                    NavigationLink(value: item) {
-                                        ItemCell(item: item, imageURL: store.imageURL(for: item))
-                                    }
-                                    .buttonStyle(.plain)
-                                }
-                            }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.top, 12)
+                                .accessibilityAddTraits(.isHeader)
+                                .accessibilityIdentifier("category-header-\(category.rawValue)")
                         }
                     }
                 }
             }
             .padding()
         }
+        .accessibilityIdentifier("wardrobe-grid")
     }
 
     private var addMenu: some View {
@@ -169,6 +175,7 @@ private struct ItemCell: View {
                 .aspectRatio(1, contentMode: .fit)
                 .overlay { ItemImage(url: imageURL, contentMode: .fill) }
                 .clipShape(RoundedRectangle(cornerRadius: 12))
+                .contentShape(RoundedRectangle(cornerRadius: 12))
             Text(item.displayName)
                 .font(.caption)
                 .lineLimit(1)
@@ -177,6 +184,10 @@ private struct ItemCell: View {
     }
 }
 
-#Preview {
+#Preview("Empty") {
     WardrobeView(store: .temporary())
+}
+
+#Preview("Sample items") {
+    WardrobeView(store: .sample())
 }

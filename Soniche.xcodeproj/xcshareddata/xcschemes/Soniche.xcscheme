@@ -40,6 +40,16 @@
                ReferencedContainer = "container:Packages/SonicheKit">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5A0C1E000000000000000022"
+               BuildableName = "SonicheUITests.xctest"
+               BlueprintName = "SonicheUITests"
+               ReferencedContainer = "container:Soniche.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
